@@ -1,0 +1,4 @@
+{name:'jQuery Fundamentals', duration: '16 hours',fees: 7500},
+  	{name:'Knockout Fundamentals', duration: '24 hours',fees: 9500},
+  	{name:'RequireJs Concepts', duration: '4 hours',fees: 1500},
+  	{name:'OJET Hands-On', duration: '24 hours',fees: 15000}
