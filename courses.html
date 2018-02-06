@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Course Management System</title>
+        <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+        <script src = "scripts/jquery-2.2.4.min.js"></script>
+        <script src = "scripts/knockout.min.js"></script>
+        <script src = "scripts/courses.js"></script>
+    </head>
+    <body>
+        <br/><br/>
+        <div class="container col-sm-8">
+            <div class = "panel panel-info">
+                <div class = "panel-heading">Add Course</div>
+                <div class = "panel-body">
+                    <div class="row">
+                        <div class="col-sm-2"><label for="cname">Name</label></div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="cname" placeholder="Name" data-bind="value:cname">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"><label for="duration">Duration</label></div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="duration" placeholder="Duration"  data-bind="value:cduration">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"><label for="fees">Fees</label></div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="fees" placeholder="Fees"  data-bind="value:cfees">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success" id="btn-save" data-bind="click:saveCourse">Save</button>
+                        <button type="submit" class="btn btn-danger" id="btn-clear">Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Courses</div>
+                <div class="panel-body">
+                    <table class = "table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Duration</th>
+                                <th>Fees</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="courses-list" data-bind="foreach:courses">
+                          <tr>
+                              <td data-bind="text:name"></td>
+                              <td data-bind="text:duration"></td>
+                              <td data-bind="text:fees"></td>
+                              <td><button data-bind="click:$parent.deleteCourse">Delete</button></td>
+                              <td><button data-bind="click:function(data, event)
+                                                      {
+                                                         $parent.editCourse(data, event, $index())
+                                                      }">Edit</button></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
